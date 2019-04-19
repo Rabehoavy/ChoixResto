@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace ChoixResto.Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class DalTests
     {
         [TestMethod]
         public void TestMethod1()
