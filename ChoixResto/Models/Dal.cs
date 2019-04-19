@@ -19,6 +19,12 @@ namespace ChoixResto.Models
             return bdd.Restos.ToList();
         }
 
+        public void CreerRestaurant(string nom, string telephone)
+        {
+            bdd.Restos.Add(new Resto { Nom = nom, Telephone = telephone });
+            bdd.SaveChanges();
+        }
+
         public void Dispose()
         {
             bdd.Dispose();
