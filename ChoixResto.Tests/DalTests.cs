@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using ChoixResto.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -8,6 +9,14 @@ namespace ChoixResto.Tests
     [TestClass]
     public class DalTests
     {
+        [TestInitialize]
+        public void Init_AvantChaqueTest()
+        {
+            IDatabaseInitializer<BddContext> init = new DropCreateDatabaseAlways<BddContext>();
+            Database.SetInitializer(init);
+            init.InitializeDatabase(new BddContext());
+        }
+
         [TestMethod]
         public void CreerRestaurant_AvecUnNouveauRestaurant_ObtientTousLesRestaurantsRenvoitBienLeRestaurant()
         {
