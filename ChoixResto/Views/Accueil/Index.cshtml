@@ -32,10 +32,12 @@
             <p>Bonne semaine</p>
         }
     }
-    <ul>
-        <li>@Model.Message</li>
-        <li>@Model.Date.ToString("dd/MM/yyyy")</li>
-    </ul>
+            <ul>
+                <li>@Html.Raw(Model.Message)</li>
+                <li>@Model.Message</li>
+                <li>@Model.Date.ToString("dd/MM/yyyy")</li>
+            </ul>
+
     <table>
         <tr>
             <th>Nom</th>
@@ -51,6 +53,8 @@
             }
         }
     </table>
+    <br />
+    @Html.Action("AfficheListeRestaurant")
     <br />
     @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { target = "_blank" }))
     {
@@ -69,5 +73,7 @@
         <input type="submit" value="Envoyer" />
     }
     @Html.ActionLink("Modifier le restaurant", "ModifierRestaurant", "Restaurant", new { id = Model.Resto.Id }, null)
+    <br />
+    @Html.Partial("Connexion", Model)
 </body>
 </html>
